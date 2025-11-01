@@ -28,7 +28,7 @@ def sniffing() -> list:
     str_list = []
     try :
         print("Enpezando el restreo de paquetes por la interfaz : ")
-        sniff(iface="wlp3s0",prn=lambda i: load_packet_on_list(packet=i))
+        sniff(iface="",prn=lambda i: load_packet_on_list(packet=i))
     except ValueError:
         print("An error occurred")
     else:
@@ -38,10 +38,15 @@ def sniffing() -> list:
             
     return str_list
 
-
+def search_package_attribute(str_packet:str,atribut_find:tuple):
+    pass
      
 def main():
-    lista_packet  =  sniffing()
+    list_packet  =  sniffing()
+    print(""*10+"packets list"+"*10")
+    for index,value in enumerate(list_packet):
+        print(f"{index}.\t#sourceip\tdestip#protocolultmcapa#len")
+    print(list_packet)       
 
 
 if "__main__" == __name__:
